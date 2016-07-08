@@ -4,3 +4,9 @@ c:\Users\Travis\Documents\Visual Studio 2015\Projects\PokerHand\PokerHand\bin\De
 c:\Users\Travis\Documents\Visual Studio 2015\Projects\PokerHand\PokerHand\obj\Debug\PokerHand.csprojResolveAssemblyReference.cache
 c:\Users\Travis\Documents\Visual Studio 2015\Projects\PokerHand\PokerHand\obj\Debug\PokerHand.exe
 c:\Users\Travis\Documents\Visual Studio 2015\Projects\PokerHand\PokerHand\obj\Debug\PokerHand.pdb
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand\bin\Debug\PokerHand.exe.config
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand\obj\Debug\PokerHand.exe
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand\obj\Debug\PokerHand.pdb
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand\bin\Debug\PokerHand.exe
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand\bin\Debug\PokerHand.pdb
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand\obj\Debug\PokerHand.csprojResolveAssemblyReference.cache

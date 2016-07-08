@@ -7,3 +7,12 @@ c:\Users\Travis\Documents\Visual Studio 2015\Projects\PokerHand\PokerHand.Test\b
 c:\Users\Travis\Documents\Visual Studio 2015\Projects\PokerHand\PokerHand.Test\obj\Debug\PokerHand.Test.csprojResolveAssemblyReference.cache
 c:\Users\Travis\Documents\Visual Studio 2015\Projects\PokerHand\PokerHand.Test\obj\Debug\PokerHand.Test.dll
 c:\Users\Travis\Documents\Visual Studio 2015\Projects\PokerHand\PokerHand.Test\obj\Debug\PokerHand.Test.pdb
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand.Test\bin\Debug\PokerHand.Test.dll
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand.Test\bin\Debug\PokerHand.Test.pdb
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand.Test\bin\Debug\nunit.framework.dll
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand.Test\bin\Debug\PokerHand.exe
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand.Test\bin\Debug\PokerHand.pdb
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand.Test\bin\Debug\nunit.framework.xml
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand.Test\obj\Debug\PokerHand.Test.csprojResolveAssemblyReference.cache
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand.Test\obj\Debug\PokerHand.Test.dll
+C:\Users\Travis Scott\Documents\pokerhand\PokerHand.Test\obj\Debug\PokerHand.Test.pdb
