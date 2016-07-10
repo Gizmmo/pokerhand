@@ -2,17 +2,20 @@
 
 namespace PokerHand.Hand
 {
-    public enum HandType
+    public enum PokerType
     {
-        HighCard,
-        OnePair,
+        None,
+        Flush,
         ThreeOfAKind,
-        Flush
+        OnePair,
+        HighCard
+        
     }
 
     public interface IHand
     {
-        HandType CurrentHand { get; }
+        PokerType CurrentHandType { get; }
+        int CompareTo(IHand otherHand);
         int Count { get; }
         void AddCard(ICard card);
     }

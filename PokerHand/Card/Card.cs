@@ -64,28 +64,6 @@ namespace PokerHand.Card
             }
             throw new IllegalSuitException();
         }
-
-        public bool IsSameSuit(Card secondCard)
-        {
-            return secondCard.Suit == Suit;
-        }
-
-        public bool IsSameColor(Card secondCard)
-        {
-            //If this card has hearts or diamonds as a suit...
-            if (Suit == CardSuit.Hearts || Suit == CardSuit.Diamonds)
-                //... if the second card does as well, reutrn true, otherwise false.
-                return secondCard.Suit == CardSuit.Hearts || secondCard.Suit == CardSuit.Diamonds;
-
-            //If this card is not diamonds or hearts, it is spades or clubs, so check the other card for the same.
-            return secondCard.Suit == CardSuit.Spades || secondCard.Suit == CardSuit.Clubs;
-        }
-
-        public bool IsOneGreater(Card cardTwo)
-        {
-            //Get the int values of the enums, and check if the second is the first+1.
-            return (int) Rank + 1 == (int) cardTwo.Rank;
-        }
     }
 
     public class IllegalRankException : Exception
