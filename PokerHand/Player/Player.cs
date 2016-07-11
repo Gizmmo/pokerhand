@@ -5,10 +5,15 @@ namespace PokerHand.Player
 {
     public class Player : IPlayer
     {
+        #region Properties
 
         public string Name { get; }
 
         public IHand CurrentHand { get; }
+
+        #endregion
+
+        #region Constructors
 
         /// <summary>
         /// Constructor for player class
@@ -22,11 +27,17 @@ namespace PokerHand.Player
             Array.ForEach(cards, card => CurrentHand.AddCard(new Card.Card(card)));
         }
 
+        #endregion
+
+        #region Public Methods
+
         /// <summary>
         /// Compares two players hands, and returns which hand is bigger.
         /// </summary>
         /// <param name="otherPlayer">The other player to compare hands with</param>
         /// <returns>Negative if this players hand is less value, positve if more, and 0 if the same</returns>
         public int CompareTo(Player otherPlayer) => CurrentHand.CompareTo(otherPlayer.CurrentHand);
+
+        #endregion
     }
 }

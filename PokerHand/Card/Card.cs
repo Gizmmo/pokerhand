@@ -96,9 +96,9 @@ namespace PokerHand.Card
             }
             throw new IllegalSuitException();
         }
-    }
 
-    #endregion
+        #endregion
+    }
 
     #region Exceptions
 

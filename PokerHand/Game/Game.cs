@@ -9,6 +9,7 @@ namespace PokerHand.Game
     {
         #region private Attributes
 
+        //A list of players in the game.
         private List<Player.Player> _players = new List<Player.Player>();
 
         #endregion
@@ -20,9 +21,13 @@ namespace PokerHand.Game
         /// </summary>
         public void Run()
         {
+            //Until the game is exited...
             while (true)
             {
+                // ...output the options to the user...
                 OutputOptions();
+
+                // ...And then react to the choice given.
                 PerformChosenAction(GetInput());
             }
         }
