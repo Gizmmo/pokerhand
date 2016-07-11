@@ -4,16 +4,31 @@ namespace PokerHand.Card
 {
     public class Card : ICard
     {
+        /// <summary>
+        /// The Card constructor
+        /// </summary>
+        /// <param name="cardValue">A string card value to parse into an object.</param>
         public Card(string cardValue)
         {
             Rank = ParseRank(cardValue.Substring(0, cardValue.Length - 1));
             Suit = ParseSuit(cardValue[cardValue.Length - 1]);
         }
 
+        /// <summary>
+        /// The suit of the card
+        /// </summary>
         public CardSuit Suit { get; }
 
+        /// <summary>
+        /// The rank of the card
+        /// </summary>
         public CardRank Rank { get; }
 
+        /// <summary>
+        /// Parses the rank of the card from a string passed
+        /// </summary>
+        /// <param name="rank">The string to parse the rank from</param>
+        /// <returns>The enum CardRank of the passed string.</returns>
         private CardRank ParseRank(string rank)
         {
             switch (rank)
@@ -49,6 +64,11 @@ namespace PokerHand.Card
             throw new IllegalRankException();
         }
 
+        /// <summary>
+        /// Parses the suit from the passed character.
+        /// </summary>
+        /// <param name="suit">the character to parse the suit from</param>
+        /// <returns>the CardSuit enum parsed from the character.</returns>
         private CardSuit ParseSuit(char suit)
         {
             switch (suit)

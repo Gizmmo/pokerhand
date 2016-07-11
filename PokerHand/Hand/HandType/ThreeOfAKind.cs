@@ -5,8 +5,13 @@ namespace PokerHand.Hand.HandType
 {
     public class ThreeOfAKind : MatchCard
     {
+        //The amount of cards needed to be a three of a kind (i.e. 3)
         private const int AmountOfCardMatchesNeeded = 3;
 
+        /// <summary>
+        /// Three of a kind constructor
+        /// </summary>
+        /// <param name="cards">The cards for this hand</param>
         public ThreeOfAKind(List<ICard> cards) : base(cards, AmountOfCardMatchesNeeded)
         {
         }
