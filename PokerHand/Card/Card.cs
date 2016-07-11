@@ -4,6 +4,8 @@ namespace PokerHand.Card
 {
     public class Card : ICard
     {
+        #region Constructors
+
         /// <summary>
         /// The Card constructor
         /// </summary>
@@ -13,6 +15,10 @@ namespace PokerHand.Card
             Rank = ParseRank(cardValue.Substring(0, cardValue.Length - 1));
             Suit = ParseSuit(cardValue[cardValue.Length - 1]);
         }
+
+        #endregion
+
+        #region Public Properties
 
         /// <summary>
         /// The suit of the card
@@ -24,6 +30,10 @@ namespace PokerHand.Card
         /// </summary>
         public CardRank Rank { get; }
 
+        #endregion
+
+        #region Private Methods
+
         /// <summary>
         /// Parses the rank of the card from a string passed
         /// </summary>
@@ -31,6 +41,7 @@ namespace PokerHand.Card
         /// <returns>The enum CardRank of the passed string.</returns>
         private CardRank ParseRank(string rank)
         {
+            rank = rank.ToUpper();
             switch (rank)
             {
                 case "A":
@@ -71,6 +82,7 @@ namespace PokerHand.Card
         /// <returns>the CardSuit enum parsed from the character.</returns>
         private CardSuit ParseSuit(char suit)
         {
+            suit = Char.ToUpper(suit);
             switch (suit)
             {
                 case 'C':
@@ -86,11 +98,37 @@ namespace PokerHand.Card
         }
     }
 
+    #endregion
+
+    #region Exceptions
+
+    /// <summary>
+    /// Raised if an illegal rank was passed
+    /// </summary>
     public class IllegalRankException : Exception
     {
+        public IllegalRankException()
+        {
+        }
+
+        public IllegalRankException(string message) : base(message)
+        {
+        }
     }
 
+    /// <summary>
+    /// Raised if an illegal suit was passed.
+    /// </summary>
     public class IllegalSuitException : Exception
     {
+        public IllegalSuitException()
+        {
+        }
+
+        public IllegalSuitException(string message) : base(message)
+        {
+        }
     }
+
+    #endregion
 }

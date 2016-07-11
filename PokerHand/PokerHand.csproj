@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Card\Card.cs" />
     <Compile Include="Card\ICard.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\IGame.cs" />
     <Compile Include="Hand\Hand.cs" />
     <Compile Include="Hand\HandType\Flush.cs" />
     <Compile Include="Hand\HandType\HighestCard.cs" />
@@ -54,6 +56,8 @@
     <Compile Include="Hand\HandType\RankCard.cs" />
     <Compile Include="Hand\HandType\ThreeOfAKind.cs" />
     <Compile Include="Hand\IHand.cs" />
+    <Compile Include="Player\IPlayer.cs" />
+    <Compile Include="Player\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
