@@ -94,40 +94,43 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
         [Test]
         public void DoesTheSmallerFlushInComparisonReturnNegative()
         {
-            var cardsOne = LowerValueFlush();
-            var cardsTwo = HigherValueFlush();
+            //Arrange
+            var flushOne = new Flush(LowerValueFlush());
+            var flushTwo = new Flush(HigherValueFlush());
 
-            var flushOne = new Flush(cardsOne);
+            //Act
+            var compareValue = flushOne.CompareTo(flushTwo);
 
-            var flushTwo = new Flush(cardsTwo);
-
-            Assert.That(flushOne.CompareTo(flushTwo), Is.LessThan(0));
+            //Assert
+            Assert.That(compareValue, Is.LessThan(0));
         }
 
         [Test]
         public void DoesTheLargerFlushInComparisonReturnPositive()
         {
-            var cardsTwo = LowerValueFlush();
-            var cardsOne = HigherValueFlush();
+            //Arrange
+            var flushOne = new Flush(HigherValueFlush());
+            var flushTwo = new Flush(LowerValueFlush());
 
-            var flushOne = new Flush(cardsOne);
+            //Act
+            var compareValue = flushOne.CompareTo(flushTwo);
 
-            var flushTwo = new Flush(cardsTwo);
-
-            Assert.That(flushOne.CompareTo(flushTwo), Is.GreaterThan(0));
+            //Assert
+            Assert.That(compareValue, Is.GreaterThan(0));
         }
 
         [Test]
         public void DoesEqualFlushesReturnAZero()
         {
-            var cardsTwo = LowerValueFlush();
-            var cardsOne = LowerValueFlush();
+            //Arrange
+            var flushOne = new Flush(LowerValueFlush());
+            var flushTwo = new Flush(LowerValueFlush());
 
-            var flushOne = new Flush(cardsOne);
+            //Act
+            var compareValue = flushOne.CompareTo(flushTwo);
 
-            var flushTwo = new Flush(cardsTwo);
-
-            Assert.That(flushOne.CompareTo(flushTwo), Is.EqualTo(0));
+            //Assert
+            Assert.That(compareValue, Is.EqualTo(0));
         }
     }
 }

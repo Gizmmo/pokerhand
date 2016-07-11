@@ -106,75 +106,70 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
         public void DoesTheSmallerOnePairInComparisonReturnNegative()
         {
             //Arrange
-            var cardsOne = LowerValueOnePair();
-            var cardsTwo = HigherValueOnePair();
+            var pairOne = new OnePair(LowerValueOnePair());
+            var pairTwo = new OnePair(HigherValueOnePair());
 
             //Act
-            var pairOne = new OnePair(cardsOne);
-            var pairTwo = new OnePair(cardsTwo);
+            var compareVal = pairOne.CompareTo(pairTwo);
 
             //Assert
-            Assert.That(pairOne.CompareTo(pairTwo), Is.LessThan(0));
+            Assert.That(compareVal, Is.LessThan(0));
         }
 
         [Test]
         public void DoesTheLargerOnePairInComparisonReturnPositive()
         {
             //Arrange
-            var cardsTwo = LowerValueOnePair();
-            var cardsOne = HigherValueOnePair();
+            var pairOne = new OnePair(HigherValueOnePair());
+            var pairTwo = new OnePair(LowerValueOnePair());
 
             //Act
-            var pairOne = new OnePair(cardsOne);
-            var pairTwo = new OnePair(cardsTwo);
+            var compareVal = pairOne.CompareTo(pairTwo);
 
             //Assert
-            Assert.That(pairOne.CompareTo(pairTwo), Is.GreaterThan(0));
+            Assert.That(compareVal, Is.GreaterThan(0));
         }
 
         [Test]
         public void DoesEqualOnePairsWithSameOtherCardsReturnAZero()
         {
             //Arrange
-            var cardsTwo = LowerValueOnePair();
-            var cardsOne = LowerValueOnePair();
+            var pairOne = new OnePair(LowerValueOnePair());
+            var pairTwo = new OnePair(LowerValueOnePair());
 
             //Act
-            var pairOne = new OnePair(cardsOne);
-            var pairTwo = new OnePair(cardsTwo);
+            var compareVal = pairOne.CompareTo(pairTwo);
 
             //Assert
-            Assert.That(pairOne.CompareTo(pairTwo), Is.EqualTo(0));
+            Assert.That(compareVal, Is.EqualTo(0));
         }
 
         [Test]
         public void DoesEqualOnePairsWithDifferentCardsReturnPositive()
         {
             //Arrange
-            var cardsOne = HigherValueMatchingOnePair();
-            var cardsTwo = HigherValueOnePair();
+            var pairOne = new OnePair(HigherValueMatchingOnePair());
+            var pairTwo = new OnePair(HigherValueOnePair());
 
             //Act
-            var pairOne = new OnePair(cardsOne);
-            var pairTwo = new OnePair(cardsTwo);
+            var compareVal = pairOne.CompareTo(pairTwo);
 
             //Assert
-            Assert.That(pairOne.CompareTo(pairTwo), Is.GreaterThan(0));
+            Assert.That(compareVal, Is.GreaterThan(0));
         }
 
         [Test]
         public void DoesEqualOnePairsWithDifferentCardsReturnNegative()
         {
             //Arrange
-            var cardsTwo = HigherValueMatchingOnePair();
-            var cardsOne = HigherValueOnePair();
+            var pairOne = new OnePair(HigherValueOnePair());
+            var pairTwo = new OnePair(HigherValueMatchingOnePair());
 
             //Act
-            var pairOne = new OnePair(cardsOne);
-            var pairTwo = new OnePair(cardsTwo);
+            var compareVal = pairOne.CompareTo(pairTwo);
 
             //Assert
-            Assert.That(pairOne.CompareTo(pairTwo), Is.LessThan(0));
+            Assert.That(compareVal, Is.LessThan(0));
         }
     }
 }

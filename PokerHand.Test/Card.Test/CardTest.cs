@@ -37,6 +37,7 @@ namespace PokerHand.Test.Card.Test
         [Test]
         public void DoesPassingANonRankValueThrowAnIllegalRankException()
         {
+            //Assert
             Assert.Throws<IllegalRankException>(CreateIllegalRankCard);
         }
 
@@ -68,6 +69,7 @@ namespace PokerHand.Test.Card.Test
         [Test]
         public void DoesPassingANonSuitValueThrowAnIllegalSuitException()
         {
+            //Assert
             Assert.Throws<IllegalSuitException>(CreateIllegalSuitCard);
         }
 

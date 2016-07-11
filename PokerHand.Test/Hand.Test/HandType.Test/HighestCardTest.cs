@@ -10,7 +10,8 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
         private List<ICard> _cards;
         private HighestCard _highestCard;
 
-        private void SetUpValidHighestCardCards() {
+        private void SetUpValidHighestCardCards()
+        {
             _cards = new List<ICard>
             {
                 new PokerHand.Card.Card("6C"),
@@ -21,7 +22,8 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
             };
         }
 
-        private void SetUpInvalidHighestCardCards() {
+        private void SetUpInvalidHighestCardCards()
+        {
             _cards = new List<ICard>
             {
                 new PokerHand.Card.Card("6C"),
@@ -32,12 +34,14 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
             };
         }
 
-        private void SetUpHighestCard() {
+        private void SetUpHighestCard()
+        {
             _highestCard = new HighestCard(_cards);
         }
 
         [Test]
-        public void DoesCheckingIsValidOnHighestCardReturnTrue() {
+        public void DoesCheckingIsValidOnHighestCardReturnTrue()
+        {
             //Arrange
             SetUpValidHighestCardCards();
 
@@ -48,7 +52,8 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
             Assert.That(_highestCard.IsValid, Is.True);
         }
 
-        private List<ICard> LowerValueHighestCard() {
+        private List<ICard> LowerValueHighestCard()
+        {
             return new List<ICard>
             {
                 new PokerHand.Card.Card("6C"),
@@ -59,7 +64,8 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
             };
         }
 
-        private List<ICard> HigherValueHighestCard() {
+        private List<ICard> HigherValueHighestCard()
+        {
             return new List<ICard>
             {
                 new PokerHand.Card.Card("6S"),
@@ -71,39 +77,45 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
         }
 
         [Test]
-        public void DoesTheSmallerHighestCardInComparisonReturnNegative() {
-            var cardsOne = LowerValueHighestCard();
-            var cardsTwo = HigherValueHighestCard();
+        public void DoesTheSmallerHighestCardInComparisonReturnNegative()
+        {
+            //Arrange
+            var highestCardOne = new HighestCard(LowerValueHighestCard());
+            var highestCardTwo = new HighestCard(HigherValueHighestCard());
 
-            var highestCardOne = new HighestCard(cardsOne);
+            //Act
+            var compareValue = highestCardOne.CompareTo(highestCardTwo);
 
-            var highestCardTwo = new HighestCard(cardsTwo);
-
-            Assert.That(highestCardOne.CompareTo(highestCardTwo), Is.LessThan(0));
+            //Asset
+            Assert.That(compareValue, Is.LessThan(0));
         }
 
         [Test]
-        public void DoesTheLargerHighestCardInComparisonReturnPositive() {
-            var cardsTwo = LowerValueHighestCard();
-            var cardsOne = HigherValueHighestCard();
+        public void DoesTheLargerHighestCardInComparisonReturnPositive()
+        {
+            //Arrange
+            var highestCardOne = new HighestCard(HigherValueHighestCard());
+            var highestCardTwo = new HighestCard(LowerValueHighestCard());
 
-            var highestCardOne = new HighestCard(cardsOne);
+            //Act
+            var compareValue = highestCardOne.CompareTo(highestCardTwo);
 
-            var highestCardTwo = new HighestCard(cardsTwo);
-
-            Assert.That(highestCardOne.CompareTo(highestCardTwo), Is.GreaterThan(0));
+            //Assert
+            Assert.That(compareValue, Is.GreaterThan(0));
         }
 
         [Test]
-        public void DoesEqualHighestCardesReturnAZero() {
-            var cardsTwo = LowerValueHighestCard();
-            var cardsOne = LowerValueHighestCard();
+        public void DoesEqualHighestCardesReturnAZero()
+        {
+            //Arrange
+            var highestCardOne = new HighestCard(LowerValueHighestCard());
+            var highestCardTwo = new HighestCard(LowerValueHighestCard());
 
-            var highestCardOne = new HighestCard(cardsOne);
+            //Act
+            var compareValue = highestCardOne.CompareTo(highestCardTwo);
 
-            var highestCardTwo = new HighestCard(cardsTwo);
-
-            Assert.That(highestCardOne.CompareTo(highestCardTwo), Is.EqualTo(0));
+            //Assert
+            Assert.That(compareValue, Is.EqualTo(0));
         }
     }
 }

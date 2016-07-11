@@ -11,7 +11,8 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
         private List<ICard> _cards;
         private ThreeOfAKind _pair;
 
-        private void SetUpValidThreeOfAKindCards() {
+        private void SetUpValidThreeOfAKindCards()
+        {
             _cards = new List<ICard>
             {
                 new PokerHand.Card.Card("6C"),
@@ -22,7 +23,8 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
             };
         }
 
-        private void SetUpInvalidThreeOfAKindCards() {
+        private void SetUpInvalidThreeOfAKindCards()
+        {
             _cards = new List<ICard>
             {
                 new PokerHand.Card.Card("6C"),
@@ -33,12 +35,14 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
             };
         }
 
-        private void SetUpPair() {
+        private void SetUpPair()
+        {
             _pair = new ThreeOfAKind(_cards);
         }
 
         [Test]
-        public void DoesCheckingIsValidOnValidThreeOfAKindReturnTrue() {
+        public void DoesCheckingIsValidOnValidThreeOfAKindReturnTrue()
+        {
             //Arrange
             SetUpValidThreeOfAKindCards();
 
@@ -50,7 +54,8 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
         }
 
         [Test]
-        public void DoesCheckingIsValidOnInvalidThreeOfAKindReturnFalse() {
+        public void DoesCheckingIsValidOnInvalidThreeOfAKindReturnFalse()
+        {
             //Arrange
             SetUpInvalidThreeOfAKindCards();
 
@@ -61,7 +66,8 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
             Assert.That(_pair.IsValid, Is.False);
         }
 
-        private List<ICard> LowerValueThreeOfAKind() {
+        private List<ICard> LowerValueThreeOfAKind()
+        {
             return new List<ICard>
             {
                 new PokerHand.Card.Card("6C"),
@@ -72,7 +78,8 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
             };
         }
 
-        private List<ICard> HigherValueMatchingThreeOfAKind() {
+        private List<ICard> HigherValueMatchingThreeOfAKind()
+        {
             return new List<ICard>
             {
                 new PokerHand.Card.Card("JC"),
@@ -83,7 +90,8 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
             };
         }
 
-        private List<ICard> HigherValueThreeOfAKind() {
+        private List<ICard> HigherValueThreeOfAKind()
+        {
             return new List<ICard>
             {
                 new PokerHand.Card.Card("JS"),
@@ -95,73 +103,73 @@ namespace PokerHand.Test.Hand.Test.HandType.Test
         }
 
         [Test]
-        public void DoesTheSmallerThreeOfAKindInComparisonReturnNegative() {
+        public void DoesTheSmallerThreeOfAKindInComparisonReturnNegative()
+        {
             //Arrange
-            var cardsOne = LowerValueThreeOfAKind();
-            var cardsTwo = HigherValueThreeOfAKind();
+            var pairOne = new ThreeOfAKind(LowerValueThreeOfAKind());
+            var pairTwo = new ThreeOfAKind(HigherValueThreeOfAKind());
 
             //Act
-            var pairOne = new ThreeOfAKind(cardsOne);
-            var pairTwo = new ThreeOfAKind(cardsTwo);
+            var compareVal = pairOne.CompareTo(pairTwo);
 
             //Assert
-            Assert.That(pairOne.CompareTo(pairTwo), Is.LessThan(0));
+            Assert.That(compareVal, Is.LessThan(0));
         }
 
         [Test]
-        public void DoesTheLargerThreeOfAKindInComparisonReturnPositive() {
+        public void DoesTheLargerThreeOfAKindInComparisonReturnPositive()
+        {
             //Arrange
-            var cardsTwo = LowerValueThreeOfAKind();
-            var cardsOne = HigherValueThreeOfAKind();
+            var pairOne = new ThreeOfAKind(HigherValueThreeOfAKind());
+            var pairTwo = new ThreeOfAKind(LowerValueThreeOfAKind());
 
             //Act
-            var pairOne = new ThreeOfAKind(cardsOne);
-            var pairTwo = new ThreeOfAKind(cardsTwo);
+            var compareVal = pairOne.CompareTo(pairTwo);
 
             //Assert
-            Assert.That(pairOne.CompareTo(pairTwo), Is.GreaterThan(0));
+            Assert.That(compareVal, Is.GreaterThan(0));
         }
 
         [Test]
-        public void DoesEqualThreeOfAKindsWithSameOtherCardsReturnAZero() {
+        public void DoesEqualThreeOfAKindsWithSameOtherCardsReturnAZero()
+        {
             //Arrange
-            var cardsTwo = LowerValueThreeOfAKind();
-            var cardsOne = LowerValueThreeOfAKind();
+            var pairOne = new ThreeOfAKind(LowerValueThreeOfAKind());
+            var pairTwo = new ThreeOfAKind(LowerValueThreeOfAKind());
 
             //Act
-            var pairOne = new ThreeOfAKind(cardsOne);
-            var pairTwo = new ThreeOfAKind(cardsTwo);
+            var compareVal = pairOne.CompareTo(pairTwo);
 
             //Assert
-            Assert.That(pairOne.CompareTo(pairTwo), Is.EqualTo(0));
+            Assert.That(compareVal, Is.EqualTo(0));
         }
 
         [Test]
-        public void DoesEqualThreeOfAKindsWithDifferentCardsReturnPositive() {
+        public void DoesEqualThreeOfAKindsWithDifferentCardsReturnPositive()
+        {
             //Arrange
-            var cardsOne = HigherValueMatchingThreeOfAKind();
-            var cardsTwo = HigherValueThreeOfAKind();
+            var pairOne = new ThreeOfAKind(HigherValueMatchingThreeOfAKind());
+            var pairTwo = new ThreeOfAKind(HigherValueThreeOfAKind());
 
             //Act
-            var pairOne = new ThreeOfAKind(cardsOne);
-            var pairTwo = new ThreeOfAKind(cardsTwo);
+            var compareVal = pairOne.CompareTo(pairTwo);
 
             //Assert
-            Assert.That(pairOne.CompareTo(pairTwo), Is.GreaterThan(0));
+            Assert.That(compareVal, Is.GreaterThan(0));
         }
 
         [Test]
-        public void DoesEqualThreeOfAKindsWithDifferentCardsReturnNegative() {
+        public void DoesEqualThreeOfAKindsWithDifferentCardsReturnNegative()
+        {
             //Arrange
-            var cardsTwo = HigherValueMatchingThreeOfAKind();
-            var cardsOne = HigherValueThreeOfAKind();
+            var pairOne = new ThreeOfAKind(HigherValueThreeOfAKind());
+            var pairTwo = new ThreeOfAKind(HigherValueMatchingThreeOfAKind());
 
             //Act
-            var pairOne = new ThreeOfAKind(cardsOne);
-            var pairTwo = new ThreeOfAKind(cardsTwo);
+            var compareVal = pairOne.CompareTo(pairTwo);
 
             //Assert
-            Assert.That(pairOne.CompareTo(pairTwo), Is.LessThan(0));
+            Assert.That(compareVal, Is.LessThan(0));
         }
     }
 }
