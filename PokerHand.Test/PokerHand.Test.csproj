@@ -47,6 +47,10 @@
     <Compile Include="Card.Test\CardTest.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Hand.Test\HandTest.cs" />
+    <Compile Include="Hand.Test\HandType.Test\FlushTest.cs" />
+    <Compile Include="Hand.Test\HandType.Test\HighestCardTest.cs" />
+    <Compile Include="Hand.Test\HandType.Test\OnePairTest.cs" />
+    <Compile Include="Hand.Test\HandType.Test\ThreeOfAKindTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

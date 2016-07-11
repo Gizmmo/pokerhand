@@ -47,7 +47,12 @@
     <Compile Include="Card\ICard.cs" />
     <Compile Include="Hand\Hand.cs" />
     <Compile Include="Hand\HandType\Flush.cs" />
+    <Compile Include="Hand\HandType\HighestCard.cs" />
     <Compile Include="Hand\HandType\IHandType.cs" />
+    <Compile Include="Hand\HandType\MatchCard.cs" />
+    <Compile Include="Hand\HandType\OnePair.cs" />
+    <Compile Include="Hand\HandType\RankCard.cs" />
+    <Compile Include="Hand\HandType\ThreeOfAKind.cs" />
     <Compile Include="Hand\IHand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

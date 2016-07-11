@@ -4,8 +4,8 @@ using PokerHand.Card;
 
 namespace PokerHand.Hand.HandType
 {
-    public interface IHandType : IComparable<IHandType>
+    public interface IHandType
     {
-        bool IsValid(List<ICard> cards);
+        bool IsValid { get; }
     }
 }
