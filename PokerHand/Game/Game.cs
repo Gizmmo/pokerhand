@@ -90,7 +90,7 @@ namespace PokerHand.Game
             if (_players.Count == 0)
             {
                 // ...Log topthe user that there are no players...
-                Console.WriteLine("No players are currently in the game.  Please add players first.");
+                Console.WriteLine("No players are currently in the game.  Please add players first...\n");
                 //... And go back to the main menu.
                 return;
             }
@@ -99,38 +99,46 @@ namespace PokerHand.Game
 
             var winnersList = new List<Player.Player>();
             foreach (var player in _players)
-            {
-                //if the winners list is empty...
-                if (winnersList.Count == 0)
-                {
-                    // ...Add the first player to the list...
-                    winnersList.Add(player);
-
-                    //...And continue through the loop.
-                    continue;
-                }
-
-                var compareVal = player.CompareTo(winnersList[0]);
-
-                // IF compareVal is greater then 0. the new player in the loop is of more value then the ones
-                // in the winner list...
-                if (compareVal > 0)
-                {
-                    // ...Clear the winner list...
-                    winnersList.Clear();
-
-                    // ...And add that player to the list as the only current winner
-                    winnersList.Add(player);
-                }
-                //If the compare is 0, that means that they are the same value hand
-                else if (compareVal == 0)
-                    //So add that new winner to the winner list.
-                    winnersList.Add(player);
-            }
+                CheckForWinner(player, winnersList);
 
             //For each winner, print out ther name to show they won!
             winnersList.ForEach(player => Console.WriteLine(player.Name));
             EnterEmptyLine();
+        }
+
+        /// <summary>
+        /// Checks to see if the passed player is a winner based on the other winners
+        /// </summary>
+        /// <param name="player">The player to check is a winner</param>
+        /// <param name="winnersList">The list of already existing winners</param>
+        private void CheckForWinner(Player.Player player, List<Player.Player> winnersList)
+        {
+            //if the winners list is empty...
+            if (winnersList.Count == 0)
+            {
+                // ...Add the first player to the list...
+                winnersList.Add(player);
+
+                //...And exit from checking any further
+                return;
+            }
+
+            var compareVal = player.CompareTo(winnersList[0]);
+
+            // IF compareVal is greater then 0. the new player is of more value then the ones
+            // in the winner list...
+            if (compareVal > 0)
+            {
+                // ...Clear the winner list...
+                winnersList.Clear();
+
+                // ...And add that player to the list as the only current winner
+                winnersList.Add(player);
+            }
+            //If the compare is 0, that means that they are the same value hand
+            else if (compareVal == 0)
+                //So add that new winner to the winner list.
+                winnersList.Add(player);
         }
 
         /// <summary>
